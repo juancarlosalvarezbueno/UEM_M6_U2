@@ -1,0 +1,58 @@
+<H2>Tus Datos</H2>
+
+<form class="form" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control" />
+        <span *ngIf="nombre?.invalid && nombre?.touched" class="error">
+            <small *ngIf="nombre?.errors?.['required']">El nombre es obligatorio.</small>
+            <small *ngIf="nombre?.errors?.['maxlength']">Máximo 20 caracteres.</small>
+        </span>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" formControlName="apellido" class="form-control" />
+        <span *ngIf="apellido?.invalid && apellido?.touched" class="error">
+            <small *ngIf="apellido?.errors?.['required']">El apellido es obligatorio.</small>
+            <small *ngIf="apellido?.errors?.['maxlength']">Máximo 20 caracteres.</small>
+        </span>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+        <span *ngIf="email?.invalid && email?.touched" class="error">
+            <small *ngIf="email?.errors?.['required']">El email es obligatorio.</small>
+            <small *ngIf="email?.errors?.['email']">Formato de email inválido.</small>
+        </span>
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" formControlName="telefono" class="form-control" />
+        <span *ngIf="telefono?.invalid && telefono?.touched" class="error">
+            <small *ngIf="telefono?.errors?.['required']">El teléfono es obligatorio.</small>
+            <small *ngIf="telefono?.errors?.['pattern']">Formato de teléfono inválido.</small>
+        </span>
+        
+
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" formControlName="edad" class="form-control" />
+        <span *ngIf="edad?.invalid && edad?.touched" class="error">
+            <small *ngIf="edad?.errors?.['required']">La edad es obligatoria.</small>
+            <small *ngIf="edad?.errors?.['min']">La edad mínima es 18.</small>
+        </span>
+
+        <label for="direccion" >Dirección</label>
+        <input type="text" id="direccion" formControlName="direccion" class="form-control" />
+        <span *ngIf="direccion?.invalid && direccion?.touched" class="error">
+            <small *ngIf="direccion?.errors?.['required']">La dirección es obligatoria.</small>
+            <small *ngIf="direccion?.errors?.['maxlength']">Máximo 50 caracteres.</small>
+        </span>
+
+        <label for="dni">DNI</label>
+        <input type="text" id="dni" formControlName="dni" class="form-control" />
+        <span *ngIf="dni?.invalid && dni?.touched" class="error">
+            <small *ngIf="dni?.errors?.['required']">El DNI es obligatorio.</small>
+            <small *ngIf="dni?.errors?.['pattern']">Formato de DNI inválido.</small>
+        </span>
+
+        <button type="submit" [disabled]="formulario.invalid">Enviar</button>
+
+    </div>
+</form>

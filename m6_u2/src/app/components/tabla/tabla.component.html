@@ -1,0 +1,26 @@
+<h2>DATOS COCHES</h2>
+
+<button (click)="cambiarModo()">Cambiar Modo</button>
+
+
+<table [ngClass]="modoalternativo ? 'modo-alternativo' : 'modo-normal'">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Modelo Coche</th>
+            <th *ngIf="modoalternativo">Marca Coche</th>
+            <th *ngIf="modoalternativo">Precio</th>
+            <th *ngIf="!modoalternativo">Fecha Lanzamiento</th>
+            <th *ngIf="!modoalternativo">Unidades Vendidas</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let coche of dataSource.data">
+            <td>{{coche.id}}</td>
+            <td>{{coche.modelo_coche}}</td>
+            <td *ngIf="modoalternativo">{{coche.marca_coche}}</td>
+            <td *ngIf="modoalternativo">{{coche.precio_coche}}</td>
+            <td *ngIf="!modoalternativo">{{coche.fecha_lanzamiento}}</td>
+            <td *ngIf="!modoalternativo">{{coche.unidades_vendidas}}</td>
+        </tr>
+</table>
